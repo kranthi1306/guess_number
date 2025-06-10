@@ -1,8 +1,6 @@
-from algopy import ARC4Contract, String
-from algopy.arc4 import abimethod
-
-
-class GuessNumber(ARC4Contract):
-    @abimethod()
-    def hello(self, name: String) -> String:
-        return "Hello, " + name
+from algopy import *
+class guess_number(ARC4Contract)
+  class local_state(LocalState)
+    guess_number=UInt8   
+ @Arc4.abimethod()
+ def random_number(self,guess:UInt8)->UInt8:
