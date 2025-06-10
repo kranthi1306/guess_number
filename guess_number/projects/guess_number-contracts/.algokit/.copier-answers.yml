@@ -1,0 +1,10 @@
+# Changes here will be overwritten by Copier; NEVER EDIT MANUALLY
+_commit: 1.6.1
+_src_path: gh:algorandfoundation/algokit-python-template
+author_email: kranthi.maganti1306@gmail.com
+author_name: Kranthi Maganti
+contract_name: guess_number
+deployment_language: python
+preset_name: starter
+project_name: guess_number-contracts
+
