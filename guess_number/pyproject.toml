@@ -1,0 +1,13 @@
+[tool.poetry]
+name = "guess-number"
+version = "0.1.0"
+description = "A simple guessing game"
+authors = ["Your Name <you@example.com>"]
+packages = [{ include = "guess_number" }]
+
+[tool.poetry.dependencies]
+python = "^3.12"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
