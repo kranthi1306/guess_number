@@ -1,6 +1,0 @@
-puya==0.3.3
-algokit-utils==1.5.1
-pytest
-pytest-mock
-black
-mypy
