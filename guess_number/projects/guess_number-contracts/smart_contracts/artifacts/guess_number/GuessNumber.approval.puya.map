@@ -1,0 +1,820 @@
+{
+  "version": 3,
+  "sources": [
+    "../../guess_number/contract.py"
+  ],
+  "mappings": ";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;AAEA;;AAAA;;;AAAA;;;;;;;;;;;;;;;;;AAAA;;;AAAA;;;;;;;;AAAA;;AAsBK;;AAAA;AAAA;AAAA;;AAAA;AAAA;;;AAAA;AAAA;AAAA;AAAA;AAAA;;AAXA;;AAAA;AAAA;AAAA;;AAAA;AAXL;;;AAWK;;;AAAA;AAAA;AAAA;AAAA;AAAA;;AAPA;;AAAA;AAAA;AAAA;;AAAA;AAJL;;;AAIK;;;AAAA;;AAJL;;AAAA;;;;;;;;;AAIA;;;AAEe;;AAAc;;AAAd;AAAP;AACO;;AAAgB;;;;;;;;;;AAAhB;AAAP;AACA;AAAA;;AAAA;AACA;AAA2B;;AAA3B;;AAER;;;AAEe;AAAA;AAAA;AAAA;AAA2B;;AAA3B;AAAP;AACiB;AAAA;AAAA;AAAA;AAAd;;AAAA;AAAX;;;AACY;AAA2B;;AAA3B;AACO;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;AAAP;AACc;AAAA;AAAA;AAAA;AAAb;;AAAA;AAAb;;;AACmB;;;;;;;;;;;;AAAP;AAEO;;;;;;;;;;;;;AAAP;AAIG;AAAA;AAAA;AAAA;AAAP",
+  "op_pc_offset": 0,
+  "pc_events": {
+    "1": {
+      "subroutine": "algopy.arc4.ARC4Contract.approval_program",
+      "params": {},
+      "block": "main",
+      "stack_in": [],
+      "op": "intcblock 0 1"
+    },
+    "5": {
+      "op": "bytecblock \"winner\" \"guess_number\" 0x151f7c75"
+    },
+    "32": {
+      "op": "txn NumAppArgs",
+      "defined_out": [
+        "tmp%0#1"
+      ],
+      "stack_out": [
+        "tmp%0#1"
+      ]
+    },
+    "34": {
+      "op": "bz main_bare_routing@8",
+      "stack_out": []
+    },
+    "37": {
+      "op": "pushbytess 0x24833ee8 0xabe0f9ce 0xf3d029da // method \"generated_number(uint64)void\", method \"guess(uint64)string\", method \"get_winner()address\"",
+      "defined_out": [
+        "Method(generated_number(uint64)void)",
+        "Method(get_winner()address)",
+        "Method(guess(uint64)string)"
+      ],
+      "stack_out": [
+        "Method(generated_number(uint64)void)",
+        "Method(guess(uint64)string)",
+        "Method(get_winner()address)"
+      ]
+    },
+    "54": {
+      "op": "txna ApplicationArgs 0",
+      "defined_out": [
+        "Method(generated_number(uint64)void)",
+        "Method(get_winner()address)",
+        "Method(guess(uint64)string)",
+        "tmp%2#0"
+      ],
+      "stack_out": [
+        "Method(generated_number(uint64)void)",
+        "Method(guess(uint64)string)",
+        "Method(get_winner()address)",
+        "tmp%2#0"
+      ]
+    },
+    "57": {
+      "op": "match main_generated_number_route@3 main_guess_route@4 main_get_winner_route@5",
+      "stack_out": []
+    },
+    "65": {
+      "block": "main_after_if_else@12",
+      "stack_in": [],
+      "op": "intc_0 // 0",
+      "defined_out": [
+        "tmp%0#0"
+      ],
+      "stack_out": [
+        "tmp%0#0"
+      ]
+    },
+    "66": {
+      "op": "return",
+      "stack_out": []
+    },
+    "67": {
+      "block": "main_get_winner_route@5",
+      "stack_in": [],
+      "op": "txn OnCompletion",
+      "defined_out": [
+        "tmp%13#0"
+      ],
+      "stack_out": [
+        "tmp%13#0"
+      ]
+    },
+    "69": {
+      "op": "!",
+      "defined_out": [
+        "tmp%14#0"
+      ],
+      "stack_out": [
+        "tmp%14#0"
+      ]
+    },
+    "70": {
+      "error": "OnCompletion is not NoOp",
+      "op": "assert // OnCompletion is not NoOp",
+      "stack_out": []
+    },
+    "71": {
+      "op": "txn ApplicationID",
+      "defined_out": [
+        "tmp%15#0"
+      ],
+      "stack_out": [
+        "tmp%15#0"
+      ]
+    },
+    "73": {
+      "error": "can only call when not creating",
+      "op": "assert // can only call when not creating",
+      "stack_out": []
+    },
+    "74": {
+      "callsub": "smart_contracts.guess_number.contract.GuessNumber.get_winner",
+      "op": "callsub get_winner",
+      "defined_out": [
+        "tmp%17#0"
+      ],
+      "stack_out": [
+        "tmp%17#0"
+      ]
+    },
+    "77": {
+      "op": "bytec_2 // 0x151f7c75",
+      "defined_out": [
+        "0x151f7c75",
+        "tmp%17#0"
+      ],
+      "stack_out": [
+        "tmp%17#0",
+        "0x151f7c75"
+      ]
+    },
+    "78": {
+      "op": "swap",
+      "stack_out": [
+        "0x151f7c75",
+        "tmp%17#0"
+      ]
+    },
+    "79": {
+      "op": "concat",
+      "defined_out": [
+        "tmp%18#0"
+      ],
+      "stack_out": [
+        "tmp%18#0"
+      ]
+    },
+    "80": {
+      "op": "log",
+      "stack_out": []
+    },
+    "81": {
+      "op": "intc_1 // 1",
+      "defined_out": [
+        "tmp%0#0"
+      ],
+      "stack_out": [
+        "tmp%0#0"
+      ]
+    },
+    "82": {
+      "op": "return",
+      "stack_out": []
+    },
+    "83": {
+      "block": "main_guess_route@4",
+      "stack_in": [],
+      "op": "txn OnCompletion",
+      "defined_out": [
+        "tmp%7#0"
+      ],
+      "stack_out": [
+        "tmp%7#0"
+      ]
+    },
+    "85": {
+      "op": "!",
+      "defined_out": [
+        "tmp%8#0"
+      ],
+      "stack_out": [
+        "tmp%8#0"
+      ]
+    },
+    "86": {
+      "error": "OnCompletion is not NoOp",
+      "op": "assert // OnCompletion is not NoOp",
+      "stack_out": []
+    },
+    "87": {
+      "op": "txn ApplicationID",
+      "defined_out": [
+        "tmp%9#0"
+      ],
+      "stack_out": [
+        "tmp%9#0"
+      ]
+    },
+    "89": {
+      "error": "can only call when not creating",
+      "op": "assert // can only call when not creating",
+      "stack_out": []
+    },
+    "90": {
+      "op": "txna ApplicationArgs 1",
+      "defined_out": [
+        "reinterpret_bytes[8]%1#0"
+      ],
+      "stack_out": [
+        "reinterpret_bytes[8]%1#0"
+      ]
+    },
+    "93": {
+      "callsub": "smart_contracts.guess_number.contract.GuessNumber.guess",
+      "op": "callsub guess",
+      "defined_out": [
+        "tmp%11#0"
+      ],
+      "stack_out": [
+        "tmp%11#0"
+      ]
+    },
+    "96": {
+      "op": "bytec_2 // 0x151f7c75",
+      "defined_out": [
+        "0x151f7c75",
+        "tmp%11#0"
+      ],
+      "stack_out": [
+        "tmp%11#0",
+        "0x151f7c75"
+      ]
+    },
+    "97": {
+      "op": "swap",
+      "stack_out": [
+        "0x151f7c75",
+        "tmp%11#0"
+      ]
+    },
+    "98": {
+      "op": "concat",
+      "defined_out": [
+        "tmp%12#0"
+      ],
+      "stack_out": [
+        "tmp%12#0"
+      ]
+    },
+    "99": {
+      "op": "log",
+      "stack_out": []
+    },
+    "100": {
+      "op": "intc_1 // 1",
+      "defined_out": [
+        "tmp%0#0"
+      ],
+      "stack_out": [
+        "tmp%0#0"
+      ]
+    },
+    "101": {
+      "op": "return",
+      "stack_out": []
+    },
+    "102": {
+      "block": "main_generated_number_route@3",
+      "stack_in": [],
+      "op": "txn OnCompletion",
+      "defined_out": [
+        "tmp%3#0"
+      ],
+      "stack_out": [
+        "tmp%3#0"
+      ]
+    },
+    "104": {
+      "op": "!",
+      "defined_out": [
+        "tmp%4#0"
+      ],
+      "stack_out": [
+        "tmp%4#0"
+      ]
+    },
+    "105": {
+      "error": "OnCompletion is not NoOp",
+      "op": "assert // OnCompletion is not NoOp",
+      "stack_out": []
+    },
+    "106": {
+      "op": "txn ApplicationID",
+      "defined_out": [
+        "tmp%5#0"
+      ],
+      "stack_out": [
+        "tmp%5#0"
+      ]
+    },
+    "108": {
+      "error": "can only call when not creating",
+      "op": "assert // can only call when not creating",
+      "stack_out": []
+    },
+    "109": {
+      "op": "txna ApplicationArgs 1",
+      "defined_out": [
+        "reinterpret_bytes[8]%0#0"
+      ],
+      "stack_out": [
+        "reinterpret_bytes[8]%0#0"
+      ]
+    },
+    "112": {
+      "callsub": "smart_contracts.guess_number.contract.GuessNumber.generated_number",
+      "op": "callsub generated_number",
+      "stack_out": []
+    },
+    "115": {
+      "op": "intc_1 // 1",
+      "defined_out": [
+        "tmp%0#0"
+      ],
+      "stack_out": [
+        "tmp%0#0"
+      ]
+    },
+    "116": {
+      "op": "return",
+      "stack_out": []
+    },
+    "117": {
+      "block": "main_bare_routing@8",
+      "stack_in": [],
+      "op": "txn OnCompletion",
+      "defined_out": [
+        "tmp%19#0"
+      ],
+      "stack_out": [
+        "tmp%19#0"
+      ]
+    },
+    "119": {
+      "op": "bnz main_after_if_else@12",
+      "stack_out": []
+    },
+    "122": {
+      "op": "txn ApplicationID",
+      "defined_out": [
+        "tmp%20#0"
+      ],
+      "stack_out": [
+        "tmp%20#0"
+      ]
+    },
+    "124": {
+      "op": "!",
+      "defined_out": [
+        "tmp%21#0"
+      ],
+      "stack_out": [
+        "tmp%21#0"
+      ]
+    },
+    "125": {
+      "error": "can only call when creating",
+      "op": "assert // can only call when creating",
+      "stack_out": []
+    },
+    "126": {
+      "op": "intc_1 // 1",
+      "defined_out": [
+        "tmp%0#0"
+      ],
+      "stack_out": [
+        "tmp%0#0"
+      ]
+    },
+    "127": {
+      "op": "return",
+      "stack_out": []
+    },
+    "128": {
+      "subroutine": "smart_contracts.guess_number.contract.GuessNumber.generated_number",
+      "params": {
+        "hidden_number#0": "bytes"
+      },
+      "block": "generated_number",
+      "stack_in": [],
+      "op": "proto 1 0"
+    },
+    "131": {
+      "op": "txn Sender",
+      "defined_out": [
+        "tmp%0#0"
+      ],
+      "stack_out": [
+        "tmp%0#0"
+      ]
+    },
+    "133": {
+      "op": "global CreatorAddress",
+      "defined_out": [
+        "tmp%0#0",
+        "tmp%1#0"
+      ],
+      "stack_out": [
+        "tmp%0#0",
+        "tmp%1#0"
+      ]
+    },
+    "135": {
+      "op": "==",
+      "defined_out": [
+        "tmp%2#0"
+      ],
+      "stack_out": [
+        "tmp%2#0"
+      ]
+    },
+    "136": {
+      "error": "Only creator can set number",
+      "op": "assert // Only creator can set number",
+      "stack_out": []
+    },
+    "137": {
+      "op": "frame_dig -1",
+      "defined_out": [
+        "hidden_number#0 (copy)"
+      ],
+      "stack_out": [
+        "hidden_number#0 (copy)"
+      ]
+    },
+    "139": {
+      "op": "pushbytes 0x0000000000000000",
+      "defined_out": [
+        "0x0000000000000000",
+        "hidden_number#0 (copy)"
+      ],
+      "stack_out": [
+        "hidden_number#0 (copy)",
+        "0x0000000000000000"
+      ]
+    },
+    "149": {
+      "op": "b>",
+      "defined_out": [
+        "tmp%3#0"
+      ],
+      "stack_out": [
+        "tmp%3#0"
+      ]
+    },
+    "150": {
+      "error": "Number must be positive",
+      "op": "assert // Number must be positive",
+      "stack_out": []
+    },
+    "151": {
+      "op": "bytec_1 // \"guess_number\"",
+      "defined_out": [
+        "\"guess_number\""
+      ],
+      "stack_out": [
+        "\"guess_number\""
+      ]
+    },
+    "152": {
+      "op": "frame_dig -1",
+      "stack_out": [
+        "\"guess_number\"",
+        "hidden_number#0 (copy)"
+      ]
+    },
+    "154": {
+      "op": "app_global_put",
+      "stack_out": []
+    },
+    "155": {
+      "op": "bytec_0 // \"winner\"",
+      "defined_out": [
+        "\"winner\""
+      ],
+      "stack_out": [
+        "\"winner\""
+      ]
+    },
+    "156": {
+      "op": "global ZeroAddress",
+      "defined_out": [
+        "\"winner\"",
+        "materialized_values%0#0"
+      ],
+      "stack_out": [
+        "\"winner\"",
+        "materialized_values%0#0"
+      ]
+    },
+    "158": {
+      "op": "app_global_put",
+      "stack_out": []
+    },
+    "159": {
+      "retsub": true,
+      "op": "retsub"
+    },
+    "160": {
+      "subroutine": "smart_contracts.guess_number.contract.GuessNumber.guess",
+      "params": {
+        "user_guess#0": "bytes"
+      },
+      "block": "guess",
+      "stack_in": [],
+      "op": "proto 1 1"
+    },
+    "163": {
+      "op": "intc_0 // 0",
+      "defined_out": [
+        "0"
+      ],
+      "stack_out": [
+        "0"
+      ]
+    },
+    "164": {
+      "op": "bytec_0 // \"winner\"",
+      "defined_out": [
+        "\"winner\"",
+        "0"
+      ],
+      "stack_out": [
+        "0",
+        "\"winner\""
+      ]
+    },
+    "165": {
+      "op": "app_global_get_ex",
+      "defined_out": [
+        "maybe_exists%0#0",
+        "maybe_value%0#0"
+      ],
+      "stack_out": [
+        "maybe_value%0#0",
+        "maybe_exists%0#0"
+      ]
+    },
+    "166": {
+      "error": "check self.winner exists",
+      "op": "assert // check self.winner exists",
+      "stack_out": [
+        "maybe_value%0#0"
+      ]
+    },
+    "167": {
+      "op": "global ZeroAddress",
+      "defined_out": [
+        "maybe_value%0#0",
+        "tmp%0#0"
+      ],
+      "stack_out": [
+        "maybe_value%0#0",
+        "tmp%0#0"
+      ]
+    },
+    "169": {
+      "op": "==",
+      "defined_out": [
+        "tmp%1#0"
+      ],
+      "stack_out": [
+        "tmp%1#0"
+      ]
+    },
+    "170": {
+      "error": "Game already won",
+      "op": "assert // Game already won",
+      "stack_out": []
+    },
+    "171": {
+      "op": "intc_0 // 0",
+      "stack_out": [
+        "0"
+      ]
+    },
+    "172": {
+      "op": "bytec_1 // \"guess_number\"",
+      "defined_out": [
+        "\"guess_number\"",
+        "0"
+      ],
+      "stack_out": [
+        "0",
+        "\"guess_number\""
+      ]
+    },
+    "173": {
+      "op": "app_global_get_ex",
+      "defined_out": [
+        "maybe_exists%1#0",
+        "maybe_value%1#0"
+      ],
+      "stack_out": [
+        "maybe_value%1#0",
+        "maybe_exists%1#0"
+      ]
+    },
+    "174": {
+      "error": "check self.guess_number exists",
+      "op": "assert // check self.guess_number exists",
+      "stack_out": [
+        "maybe_value%1#0"
+      ]
+    },
+    "175": {
+      "op": "frame_dig -1",
+      "defined_out": [
+        "maybe_value%1#0",
+        "user_guess#0 (copy)"
+      ],
+      "stack_out": [
+        "maybe_value%1#0",
+        "user_guess#0 (copy)"
+      ]
+    },
+    "177": {
+      "op": "b==",
+      "defined_out": [
+        "tmp%2#0"
+      ],
+      "stack_out": [
+        "tmp%2#0"
+      ]
+    },
+    "178": {
+      "op": "bz guess_else_body@2",
+      "stack_out": []
+    },
+    "181": {
+      "op": "bytec_0 // \"winner\"",
+      "stack_out": [
+        "\"winner\""
+      ]
+    },
+    "182": {
+      "op": "txn Sender",
+      "defined_out": [
+        "\"winner\"",
+        "materialized_values%0#0"
+      ],
+      "stack_out": [
+        "\"winner\"",
+        "materialized_values%0#0"
+      ]
+    },
+    "184": {
+      "op": "app_global_put",
+      "stack_out": []
+    },
+    "185": {
+      "op": "pushbytes 0x001c436f72726563742120596f7520617265207468652077696e6e657221",
+      "defined_out": [
+        "0x001c436f72726563742120596f7520617265207468652077696e6e657221"
+      ],
+      "stack_out": [
+        "0x001c436f72726563742120596f7520617265207468652077696e6e657221"
+      ]
+    },
+    "217": {
+      "retsub": true,
+      "op": "retsub"
+    },
+    "218": {
+      "block": "guess_else_body@2",
+      "stack_in": [],
+      "op": "intc_0 // 0",
+      "defined_out": [
+        "0"
+      ],
+      "stack_out": [
+        "0"
+      ]
+    },
+    "219": {
+      "op": "bytec_1 // \"guess_number\"",
+      "defined_out": [
+        "\"guess_number\"",
+        "0"
+      ],
+      "stack_out": [
+        "0",
+        "\"guess_number\""
+      ]
+    },
+    "220": {
+      "op": "app_global_get_ex",
+      "defined_out": [
+        "maybe_exists%2#0",
+        "maybe_value%2#0"
+      ],
+      "stack_out": [
+        "maybe_value%2#0",
+        "maybe_exists%2#0"
+      ]
+    },
+    "221": {
+      "error": "check self.guess_number exists",
+      "op": "assert // check self.guess_number exists",
+      "stack_out": [
+        "maybe_value%2#0"
+      ]
+    },
+    "222": {
+      "op": "frame_dig -1",
+      "defined_out": [
+        "maybe_value%2#0",
+        "user_guess#0 (copy)"
+      ],
+      "stack_out": [
+        "maybe_value%2#0",
+        "user_guess#0 (copy)"
+      ]
+    },
+    "224": {
+      "op": "b>",
+      "defined_out": [
+        "tmp%3#0"
+      ],
+      "stack_out": [
+        "tmp%3#0"
+      ]
+    },
+    "225": {
+      "op": "bz guess_else_body@4",
+      "stack_out": []
+    },
+    "228": {
+      "op": "pushbytes 0x0008546f6f206c6f7721",
+      "defined_out": [
+        "0x0008546f6f206c6f7721"
+      ],
+      "stack_out": [
+        "0x0008546f6f206c6f7721"
+      ]
+    },
+    "240": {
+      "retsub": true,
+      "op": "retsub"
+    },
+    "241": {
+      "block": "guess_else_body@4",
+      "stack_in": [],
+      "op": "pushbytes 0x0009546f6f206869676821",
+      "defined_out": [
+        "0x0009546f6f206869676821"
+      ],
+      "stack_out": [
+        "0x0009546f6f206869676821"
+      ]
+    },
+    "254": {
+      "retsub": true,
+      "op": "retsub"
+    },
+    "255": {
+      "subroutine": "smart_contracts.guess_number.contract.GuessNumber.get_winner",
+      "params": {},
+      "block": "get_winner",
+      "stack_in": [],
+      "op": "intc_0 // 0",
+      "defined_out": [
+        "0"
+      ],
+      "stack_out": [
+        "0"
+      ]
+    },
+    "256": {
+      "op": "bytec_0 // \"winner\"",
+      "defined_out": [
+        "\"winner\"",
+        "0"
+      ],
+      "stack_out": [
+        "0",
+        "\"winner\""
+      ]
+    },
+    "257": {
+      "op": "app_global_get_ex",
+      "defined_out": [
+        "maybe_exists%0#0",
+        "maybe_value%0#0"
+      ],
+      "stack_out": [
+        "maybe_value%0#0",
+        "maybe_exists%0#0"
+      ]
+    },
+    "258": {
+      "error": "check self.winner exists",
+      "op": "assert // check self.winner exists",
+      "stack_out": [
+        "maybe_value%0#0"
+      ]
+    },
+    "259": {
+      "retsub": true,
+      "op": "retsub"
+    }
+  }
+}

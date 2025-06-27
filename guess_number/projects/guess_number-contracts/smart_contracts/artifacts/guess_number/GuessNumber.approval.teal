@@ -1,0 +1,183 @@
+#pragma version 10
+#pragma typetrack false
+
+// algopy.arc4.ARC4Contract.approval_program() -> uint64:
+main:
+    intcblock 0 1
+    bytecblock "winner" "guess_number" 0x151f7c75
+    // smart_contracts/guess_number/contract.py:3
+    // class GuessNumber(ARC4Contract):
+    txn NumAppArgs
+    bz main_bare_routing@8
+    pushbytess 0x24833ee8 0xabe0f9ce 0xf3d029da // method "generated_number(uint64)void", method "guess(uint64)string", method "get_winner()address"
+    txna ApplicationArgs 0
+    match main_generated_number_route@3 main_guess_route@4 main_get_winner_route@5
+
+main_after_if_else@12:
+    // smart_contracts/guess_number/contract.py:3
+    // class GuessNumber(ARC4Contract):
+    intc_0 // 0
+    return
+
+main_get_winner_route@5:
+    // smart_contracts/guess_number/contract.py:25
+    // @arc4.abimethod()
+    txn OnCompletion
+    !
+    assert // OnCompletion is not NoOp
+    txn ApplicationID
+    assert // can only call when not creating
+    callsub get_winner
+    bytec_2 // 0x151f7c75
+    swap
+    concat
+    log
+    intc_1 // 1
+    return
+
+main_guess_route@4:
+    // smart_contracts/guess_number/contract.py:14
+    // @arc4.abimethod()
+    txn OnCompletion
+    !
+    assert // OnCompletion is not NoOp
+    txn ApplicationID
+    assert // can only call when not creating
+    // smart_contracts/guess_number/contract.py:3
+    // class GuessNumber(ARC4Contract):
+    txna ApplicationArgs 1
+    // smart_contracts/guess_number/contract.py:14
+    // @arc4.abimethod()
+    callsub guess
+    bytec_2 // 0x151f7c75
+    swap
+    concat
+    log
+    intc_1 // 1
+    return
+
+main_generated_number_route@3:
+    // smart_contracts/guess_number/contract.py:7
+    // @arc4.abimethod()
+    txn OnCompletion
+    !
+    assert // OnCompletion is not NoOp
+    txn ApplicationID
+    assert // can only call when not creating
+    // smart_contracts/guess_number/contract.py:3
+    // class GuessNumber(ARC4Contract):
+    txna ApplicationArgs 1
+    // smart_contracts/guess_number/contract.py:7
+    // @arc4.abimethod()
+    callsub generated_number
+    intc_1 // 1
+    return
+
+main_bare_routing@8:
+    // smart_contracts/guess_number/contract.py:3
+    // class GuessNumber(ARC4Contract):
+    txn OnCompletion
+    bnz main_after_if_else@12
+    txn ApplicationID
+    !
+    assert // can only call when creating
+    intc_1 // 1
+    return
+
+
+// smart_contracts.guess_number.contract.GuessNumber.generated_number(hidden_number: bytes) -> void:
+generated_number:
+    // smart_contracts/guess_number/contract.py:7-8
+    // @arc4.abimethod()
+    // def generated_number(self, hidden_number: arc4.UInt64) -> None:
+    proto 1 0
+    // smart_contracts/guess_number/contract.py:9
+    // assert Txn.sender == Global.creator_address, "Only creator can set number"
+    txn Sender
+    global CreatorAddress
+    ==
+    assert // Only creator can set number
+    // smart_contracts/guess_number/contract.py:10
+    // assert hidden_number > arc4.UInt64(0), "Number must be positive"
+    frame_dig -1
+    pushbytes 0x0000000000000000
+    b>
+    assert // Number must be positive
+    // smart_contracts/guess_number/contract.py:11
+    // self.guess_number = hidden_number
+    bytec_1 // "guess_number"
+    frame_dig -1
+    app_global_put
+    // smart_contracts/guess_number/contract.py:12
+    // self.winner = arc4.Address(Global.zero_address)  # Properly assign zero address
+    bytec_0 // "winner"
+    global ZeroAddress
+    app_global_put
+    retsub
+
+
+// smart_contracts.guess_number.contract.GuessNumber.guess(user_guess: bytes) -> bytes:
+guess:
+    // smart_contracts/guess_number/contract.py:14-15
+    // @arc4.abimethod()
+    // def guess(self, user_guess: arc4.UInt64) -> arc4.String:
+    proto 1 1
+    // smart_contracts/guess_number/contract.py:16
+    // assert self.winner ==arc4.Address(Global.zero_address), "Game already won"
+    intc_0 // 0
+    bytec_0 // "winner"
+    app_global_get_ex
+    assert // check self.winner exists
+    global ZeroAddress
+    ==
+    assert // Game already won
+    // smart_contracts/guess_number/contract.py:17
+    // if user_guess == self.guess_number:
+    intc_0 // 0
+    bytec_1 // "guess_number"
+    app_global_get_ex
+    assert // check self.guess_number exists
+    frame_dig -1
+    b==
+    bz guess_else_body@2
+    // smart_contracts/guess_number/contract.py:18
+    // self.winner = arc4.Address(Txn.sender)  # Convert sender to Address
+    bytec_0 // "winner"
+    txn Sender
+    app_global_put
+    // smart_contracts/guess_number/contract.py:19
+    // return arc4.String("Correct! You are the winner!")
+    pushbytes 0x001c436f72726563742120596f7520617265207468652077696e6e657221
+    retsub
+
+guess_else_body@2:
+    // smart_contracts/guess_number/contract.py:20
+    // elif user_guess < self.guess_number:
+    intc_0 // 0
+    bytec_1 // "guess_number"
+    app_global_get_ex
+    assert // check self.guess_number exists
+    frame_dig -1
+    b>
+    bz guess_else_body@4
+    // smart_contracts/guess_number/contract.py:21
+    // return arc4.String("Too low!")
+    pushbytes 0x0008546f6f206c6f7721
+    retsub
+
+guess_else_body@4:
+    // smart_contracts/guess_number/contract.py:23
+    // return arc4.String("Too high!")
+    pushbytes 0x0009546f6f206869676821
+    retsub
+
+
+// smart_contracts.guess_number.contract.GuessNumber.get_winner() -> bytes:
+get_winner:
+    // smart_contracts/guess_number/contract.py:27
+    // return self.winner
+    intc_0 // 0
+    bytec_0 // "winner"
+    app_global_get_ex
+    assert // check self.winner exists
+    retsub
